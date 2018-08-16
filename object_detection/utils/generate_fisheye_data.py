@@ -9,6 +9,7 @@ import json
 
 classes = ['car', 'cone']
 
+info = dict(zip(classes, [0, 0]))
 
 def main(phase='train'):
 
@@ -52,7 +53,8 @@ def main(phase='train'):
                         if name in classes:
                             blob['names'] += [name]
                             blob['bboxes'] += [ bbox ]
-            
+                            info[name] += 1
+
             if len(blob['names']) == 0:
                 print('---------')
                 continue
@@ -65,14 +67,14 @@ def main(phase='train'):
 
             raw_data += [blob]
 
-
+    print(info)
     print(len(raw_data))
     _data = {'raw_data': raw_data, 'classes': classes}
 
-    with open(f'../data/fisheye_{phase}_raw_data.json', 'w') as f:
-        json.dump(_data, f)
+    # with open(f'../data/fisheye_{phase}_raw_data.json', 'w') as f:
+    #     json.dump(_data, f)
 
 
 if __name__ == '__main__':
 
-    main('val')
+    main('train')

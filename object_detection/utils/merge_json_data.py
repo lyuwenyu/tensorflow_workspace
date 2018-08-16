@@ -4,6 +4,7 @@ import tensorflow as tf
 
 phase = 'val'
 
+
 with open('../data/coco_{}_raw_data.json'.format(phase), 'r') as f:
     coco_data = json.load(f)
 
