@@ -107,18 +107,18 @@ def main(data='train'):
             #     draw.rectangle((bbx[0], bbx[1], bbx[0]+bbx[2], bbx[1]+bbx[3]), outline='red')
             # img.show()
 
-    print(cls_img_info)
+    print('cls_img_info: ', cls_img_info)
     print(cls_num_info)
 
-    print('raw_data len', len(raw_data))
+    print('raw_data len: ', len(raw_data))
 
     _data = {'raw_data': raw_data, 'classes': list(label_map.values())}
 
-    with open(f'../data/coco_{data}_raw_data.json', 'w') as f:
-        json.dump(_data, f)
+    # with open(f'../data/coco_{data}_raw_data.json', 'w') as f:
+    #     json.dump(_data, f)
 
 
 if __name__ == '__main__':
 
-    main('val')
+    main('train')
     
